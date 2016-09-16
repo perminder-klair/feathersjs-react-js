@@ -8,10 +8,12 @@ import PostForm from '../forms/PostForm';
 
 class PostCreate extends Component {
     handleSubmit(doc) {
-        console.log('post', doc);
+        //console.log('post', doc);
         BlogActions.createPost(doc, result => {
-            alertify.success('Post created successfully!');
-            browserHistory.push(`/blog/${result._id}`);
+            if (result) {
+                alertify.success('Post created successfully!');
+                browserHistory.push(`/blog/${result._id}`);
+            }
         });
     }
 

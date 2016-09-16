@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import {Link} from 'react-router';
 
 import BlogActions from '../actions/BlogActions';
 
@@ -14,6 +15,7 @@ class PostView extends Component {
         return (
             <div className="ui main container">
                 <h1 className="ui header text center">{post.title}</h1>
+                <Link className="ui small button" to={`/blog/update/${post._id}`}>update post</Link>
             </div>
         )
     }

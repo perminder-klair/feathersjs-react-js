@@ -16,7 +16,6 @@ class Login extends Component {
     }
 
     handleSubmit = () => {
-        console.log('login', this.state);
         AppActions.login(this.state);
         alertify.success('Login successfully!');
     }

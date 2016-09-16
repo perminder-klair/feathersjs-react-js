@@ -12,15 +12,17 @@ const Header = ({ isLoggedIn }) => {
                 <Link className="item" to="/about">About</Link>
                 <Link className="item" to="/users">Users</Link>
                 <Link className="item" to="/blog">Blog</Link>
+                <Link className="item" to="/contact">Contact</Link>
                 {!isLoggedIn ?
                 <Link className="item" to="/login">Login</Link>
-                :null}
-                {!isLoggedIn ?
-                <Link className="item" to="/signup">Signup</Link>
                 :
                 <Link className="item" to="/profile">Account</Link>
                 }
-                <Link className="item" to="/contact">Contact</Link>
+                {!isLoggedIn ?
+                <Link className="item" to="/signup">Signup</Link>
+                :
+                <a className="item">Logout</a>
+                }
             </div>
         </div>
     )

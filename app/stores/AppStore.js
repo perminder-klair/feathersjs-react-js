@@ -7,7 +7,9 @@ class AppStore {
             handleLoading: [AppActions.addLoading, AppActions.removeLoading, AppActions.clearLoading],
             handleNetwork: AppActions.checkNetwork,
             handleAppFailed: AppActions.appFailed,
-            handleCheckUser: AppActions.checkUser
+            handleCheckUser: AppActions.checkUser,
+            handleAuth: [AppActions.login, AppActions.signup],
+            handleAuthSuccess: AppActions.authSuccess
         });
 
         this.state = {
@@ -46,6 +48,14 @@ class AppStore {
 
     handleCheckUser(isLoggedIn) {
         this.setState({isLoggedIn});
+    }
+
+    handleAuth() {
+        console.log('auth started');
+    }
+
+    handleAuthSuccess() {
+        this.setState({isLoggedIn: true});
     }
 }
 

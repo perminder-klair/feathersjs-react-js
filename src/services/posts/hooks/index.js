@@ -47,8 +47,8 @@ exports.before = {
 
 exports.after = {
   all: [],
-  find: [populateCreator],
-  get: [populateCreator],
+  find: [],
+  get: [],
   create: [populateCreator],
   update: [],
   patch: [],

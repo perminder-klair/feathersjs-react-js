@@ -34,19 +34,28 @@ class AppActions {
         }
     }
 
+    authSuccess() {
+        return true;
+    }
+
     login({
         email,
         password
     }) {
-        Feathers.authenticate({
-            type: 'local',
-            'email': email,
-            'password': password
-        }).then(function(result) {
-            console.log('Authenticated!', Feathers.get('token'));
-        }).catch(function(error) {
-            console.error('Error authenticating!', error);
-        });
+        return (dispatch) => {
+            dispatch();
+            Feathers.authenticate({
+                type: 'local',
+                'email': email,
+                'password': password
+            }).then((result) => {
+                console.log('Authenticated!', Feathers.get('token'));
+                this.authSuccess();
+            }).catch((error) => {
+                console.error('Error authenticating!', error);
+                this.appFailed(err);
+            });
+        }
     }
 
     signup({
@@ -54,17 +63,22 @@ class AppActions {
         password
     }) {
         const usersService = Feathers.service('users');
-        usersService.create({
-            email,
-            password
-        }).then((result) => {
-            this.login({
+        return (dispatch) => {
+            dispatch();
+            usersService.create({
                 email,
                 password
+            }).then((result) => {
+                this.authSuccess();
+                this.login({
+                    email,
+                    password
+                });
+            }).catch((err) => {
+                console.log('err', err);
+                this.appFailed(err);
             });
-        }).catch((err) => {
-            console.log('err', err);
-        });
+        }
     }
 }
 

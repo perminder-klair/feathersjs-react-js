@@ -14,7 +14,7 @@ import NotFound from './pages/NotFound';
 import Blog from './containers/Blog';
 import PostsList from './containers/PostsList';
 import PostCreate from './pages/PostCreate';
-import PostUpdate from './pages/PostUpdate';
+import PostUpdate from './containers/PostUpdate';
 import PostView from './containers/PostView';
 import Login from './pages/Login';
 import Signup from './pages/Signup';

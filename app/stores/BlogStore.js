@@ -11,7 +11,8 @@ class BlogStore {
             handleBlogFailed: BlogActions.blogFailed,
             handleFetchPosts: BlogActions.fetchPosts,
             handleUpdatePosts: BlogActions.updatePosts,
-            handleCreatePost: BlogActions.createPost
+            handleCreatePost: BlogActions.createPost,
+            handleUpdatePost: BlogActions.updatePost
         });
 
         this.state = {
@@ -41,6 +42,23 @@ class BlogStore {
 
     handleCreatePost() {
         //success
+    }
+
+    handleUpdatePost(post) {
+        let { posts } = this.state;
+
+        //find event from "events" array and update it
+        let index = _.findIndex(posts, {_id: post._id});
+
+        if (index === -1) {
+            //event not found
+            posts.push(post);
+        } else {
+            //event found update it
+            posts[index] = post;
+        }
+
+        this.setState({posts});
     }
 
     static getPostFor(_id) {

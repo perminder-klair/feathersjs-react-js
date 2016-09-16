@@ -16,7 +16,6 @@ class Signup extends Component {
     }
 
     handleSubmit = () => {
-        console.log('signup', this.state);
         AppActions.signup(this.state);
         alertify.success('Signup successfully!');
     }
