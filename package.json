@@ -1,0 +1,57 @@
+{
+  "name": "feathers-react",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src/",
+  "keywords": [
+    "feathers"
+  ],
+  "license": "MIT",
+  "repository": {},
+  "author": {},
+  "contributors": [],
+  "bugs": {},
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "scripts": {
+    "start": "node src/",
+    "start-dev": "concurrently 'node src/' 'nwb serve-react-app app/index.js'",
+    "mocha": "mocha test/ --recursive",
+    "test": "npm run jshint && npm run mocha",
+    "jshint": "jshint src/. test/. --config",
+    "build": "nwb build-react-app app/index.js public",
+    "clean": "nwb clean-app",
+    "test-react": "nwb test",
+    "test-react:coverage": "nwb test --coverage",
+    "test-react:watch": "nwb test --server"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "feathers": "^2.0.2",
+    "feathers-authentication": "^0.7.10",
+    "feathers-configuration": "^0.3.3",
+    "feathers-errors": "^2.4.0",
+    "feathers-hooks": "^1.5.7",
+    "feathers-nedb": "^2.5.0",
+    "feathers-rest": "^1.5.0",
+    "feathers-socketio": "^1.4.1",
+    "nedb": "^1.8.0",
+    "passport": "^0.3.2",
+    "serve-favicon": "^2.3.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.3",
+    "mocha": "^3.0.2",
+    "request": "^2.74.0",
+    "concurrently": "^2.2.0",
+    "nwb": "0.12.x",
+    "nwb-sass": "^0.6.0"
+  }
+}
