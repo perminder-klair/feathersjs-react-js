@@ -1,14 +1,16 @@
 import React from 'react';
 import _ from 'underscore';
 
-import alt from '../Lib/Alt';
-import BlogActions from '../Actions/BlogActions';
+import alt from '../lib/Alt';
+import BlogActions from '../actions/BlogActions';
 
 class BlogStore {
     constructor() {
         this.bindListeners({
             handleFetchPosts: BlogActions.fetchPosts,
-            handleBlogFailed: BlogActions.blogFailed
+            handleBlogFailed: BlogActions.blogFailed,
+            handleFetchPosts: BlogActions.fetchPosts,
+            handleUpdatePosts: BlogActions.updatePosts
         });
 
         this.state = {
@@ -17,7 +19,11 @@ class BlogStore {
         };
     }
 
-    handleFetchPosts(posts) {
+    handleFetchPosts() {
+        //clear posts state
+    }
+
+    handleUpdatePosts(posts) {
         this.setState({
             posts,
             errorMessage: null

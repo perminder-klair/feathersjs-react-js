@@ -1,23 +1,9 @@
-import React, { PropTypes } from 'react';
-import AltContainer from 'alt-container';
+import React from 'react';
 
-import BlogPage from '../Pages/Blog';
-import BlogStore from '../Stores/BlogStore';
-import BlogActions from '../Actions/BlogActions';
-
-const Blog = () => {
-    return (
-        <AltContainer
-            stores={
-                {
-                Blog: BlogStore
-                }
-            }
-            actions={ { BlogActions } }
-        >
-            <BlogPage />
-        </AltContainer>
-    )
-};
+const Blog = ({children}) => (
+    <div className="blog">
+        {children}
+    </div>
+);
 
 export default Blog;

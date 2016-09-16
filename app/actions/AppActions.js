@@ -18,11 +18,31 @@ class AppActions {
         return errorMessage;
     }
 
+    checkNetwork() {
+        return true;
+    }
+
     checkUser() {
-        Feathers.authenticate().then(() => {
-          console.log('user logged in');
-        }).catch(error => {
-          console.log('user not logged in', error);
+        return (dispatch) => {
+            Feathers.authenticate().then(() => {
+                console.log('user logged in');
+                dispatch(true);
+            }).catch(error => {
+                console.log('user not logged in', error);
+                dispatch(false);
+            });
+        }
+    }
+
+    login({email, password}) {
+        Feathers.authenticate({
+            type: 'local',
+            'email': email,
+            'password': password
+        }).then(function(result) {
+            console.log('Authenticated!', app.get('token'));
+        }).catch(function(error) {
+            console.error('Error authenticating!', error);
         });
     }
 }

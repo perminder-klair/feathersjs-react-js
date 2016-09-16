@@ -6,17 +6,21 @@ import PostForm from '../forms/PostForm';
 class PostUpdate extends Component {
     handleSubmit(doc) {
         console.log('post', doc);
-        alertify.success('Post created successfully!');
+        alertify.success('Post updated successfully!');
     }
 
     render() {
         return (
             <div className="ui container">
-                <h1 className="ui header">Create post</h1>
+                <h1 className="ui header">Update post</h1>
                 <PostForm handleSubmit={this.handleSubmit} />
             </div>
         )
     }
+}
+
+PostUpdate.propTypes = {
+    Post: PropTypes.object
 }
 
 export default PostUpdate;

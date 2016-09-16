@@ -6,14 +6,16 @@ class AppStore {
         this.bindListeners({
             handleLoading: [AppActions.addLoading, AppActions.removeLoading, AppActions.clearLoading],
             handleNetwork: AppActions.checkNetwork,
-            handleAppFailed: AppActions.appFailed
+            handleAppFailed: AppActions.appFailed,
+            handleCheckUser: AppActions.checkUser
         });
 
         this.state = {
             errorMessage: null,
             loading: true,//on app load make it loading ON
             loadingCount: 0,
-            networkOnline: true
+            networkOnline: true,
+            isLoggedIn: false
         };
     }
 
@@ -40,6 +42,10 @@ class AppStore {
     handleAppFailed(errorMessage) {
         console.error('app failed', errorMessage);
         this.setState({errorMessage});
+    }
+
+    handleCheckUser(isLoggedIn) {
+        this.setState({isLoggedIn});
     }
 }
 

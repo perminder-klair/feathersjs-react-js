@@ -39,6 +39,10 @@ class PostForm extends Component {
     }
 }
 
+PostForm.defaultProps = {
+    post: {}
+};
+
 PostForm.propTypes = {
     post: PropTypes.object,
     handleSubmit: PropTypes.func

@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router';
+import React, {Component, PropTypes} from 'react';
+import {Link} from 'react-router';
 
 import BlogActions from '../actions/BlogActions';
 
 import PostItem from '../components/PostItem';
 
-class Blog extends Component {
+class PostsList extends Component {
     componentDidMount() {
         //init blog posts
         BlogActions.fetchPosts();
     }
 
     render() {
-        let { posts } = this.props;
+        let { posts } = this.props.Blog;
 
         return (
             <div className="ui main container">
@@ -27,10 +27,17 @@ class Blog extends Component {
                         </div>
                     : <div className="ui items">
                         {posts.map(post => <PostItem key={post._id} link={post}/>)}
-                    </div>]
+                    </div>
+}
             </div>
         )
     }
 }
 
-export default Blog;
+PostsList.propTypes = {
+    Blog: PropTypes.shape({
+        posts: PropTypes.array
+    })
+}
+
+export default PostsList;

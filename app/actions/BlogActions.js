@@ -5,23 +5,31 @@ class BlogActions {
   fetchPosts() {
     const postsService = Feathers.service('posts');
 
-    // Find the last 10 messages
-    postsService.find({
-      query: {
-        $sort: {
-          createdAt: -1
-        },
-        $limit: 10
-      }
-    }).then(page => {
-      console.log('messages', page.data.reverse());
-    });
+    return (dispatch) => {
+        dispatch();
+        // Find the last 10 posts
+        postsService.find({
+          query: {
+            $sort: {
+              createdAt: -1
+            },
+            $limit: 10
+          }
+        }).then(page => {
+          console.log('posts', page.data.reverse());
+          this.updatePosts(page.data.reverse());
+        });
 
-    // Listen to newly created messages
-    postsService.on('created', message => {
-      console.log('message', message);
-    });
+        // Listen to newly created messages
+        postsService.on('created', posts => {
+          console.log('posts', posts);
+          this.updatePosts(posts);
+        });
+    };
+  }
 
+  updatePosts(posts) {
+      return posts;
   }
 
   blogFailed(errorMessage) {
