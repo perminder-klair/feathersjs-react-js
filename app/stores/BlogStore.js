@@ -10,7 +10,8 @@ class BlogStore {
             handleFetchPosts: BlogActions.fetchPosts,
             handleBlogFailed: BlogActions.blogFailed,
             handleFetchPosts: BlogActions.fetchPosts,
-            handleUpdatePosts: BlogActions.updatePosts
+            handleUpdatePosts: BlogActions.updatePosts,
+            handleCreatePost: BlogActions.createPost
         });
 
         this.state = {
@@ -38,10 +39,14 @@ class BlogStore {
         });
     }
 
-    static getPostFor(postId) {
+    handleCreatePost() {
+        //success
+    }
+
+    static getPostFor(_id) {
         let { posts } = this.state;
 
-        return _.findWhere(posts, {id: postId});
+        return _.findWhere(posts, {_id});
     }
 }
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import alertify from 'alertify.js';
 
+import AppActions from '../actions/AppActions';
+
 import TextInputGroup from '../elements/TextInputGroup';
 
 class Signup extends Component {
@@ -15,6 +17,7 @@ class Signup extends Component {
 
     handleSubmit = () => {
         console.log('signup', this.state);
+        AppActions.signup(this.state);
         alertify.success('Signup successfully!');
     }
 

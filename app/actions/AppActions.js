@@ -34,15 +34,36 @@ class AppActions {
         }
     }
 
-    login({email, password}) {
+    login({
+        email,
+        password
+    }) {
         Feathers.authenticate({
             type: 'local',
             'email': email,
             'password': password
         }).then(function(result) {
-            console.log('Authenticated!', app.get('token'));
+            console.log('Authenticated!', Feathers.get('token'));
         }).catch(function(error) {
             console.error('Error authenticating!', error);
+        });
+    }
+
+    signup({
+        email,
+        password
+    }) {
+        const usersService = Feathers.service('users');
+        usersService.create({
+            email,
+            password
+        }).then((result) => {
+            this.login({
+                email,
+                password
+            });
+        }).catch((err) => {
+            console.log('err', err);
         });
     }
 }

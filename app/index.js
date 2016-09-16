@@ -15,7 +15,7 @@ import Blog from './containers/Blog';
 import PostsList from './containers/PostsList';
 import PostCreate from './pages/PostCreate';
 import PostUpdate from './pages/PostUpdate';
-import PostView from './pages/PostView';
+import PostView from './containers/PostView';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
@@ -27,6 +27,7 @@ render(
         <Route path="contact" component={Contact}/>
         <Route path="login" component={Login}/>
         <Route path="signup" component={Signup}/>
+        <Route path="profile" component={Profile}/>
         <Route path="users" component={Users}>
             <Route path="/profile/:userId" component={Profile}/>
         </Route>

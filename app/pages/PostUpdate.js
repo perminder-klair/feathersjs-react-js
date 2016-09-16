@@ -11,7 +11,7 @@ class PostUpdate extends Component {
 
     render() {
         return (
-            <div className="ui container">
+            <div className="ui main container">
                 <h1 className="ui header">Update post</h1>
                 <PostForm handleSubmit={this.handleSubmit} />
             </div>

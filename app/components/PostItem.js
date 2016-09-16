@@ -8,7 +8,7 @@ class PostItem extends Component {
         return (
             <div className="item">
                 <div className="content">
-                    <Link className="ui small button" to={`/blog/${post.id}`}>
+                    <Link to={`/blog/${post._id}`}>
                         {post.title}
                     </Link>
                 </div>

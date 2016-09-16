@@ -13,6 +13,7 @@ class PostsList extends Component {
 
     render() {
         let { posts } = this.props.Blog;
+        //console.log('posts', posts);
 
         return (
             <div className="ui main container">
@@ -26,7 +27,7 @@ class PostsList extends Component {
                             </div>
                         </div>
                     : <div className="ui items">
-                        {posts.map(post => <PostItem key={post._id} link={post}/>)}
+                        {posts.map(post => <PostItem key={post._id} post={post}/>)}
                     </div>
 }
             </div>
