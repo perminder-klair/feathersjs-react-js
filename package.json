@@ -30,7 +30,11 @@
   },
   "dependencies": {
     "alertify.js": "^1.0.12",
+    "alt": "^0.18.4",
+    "alt-container": "^1.0.2",
+    "alt-utils": "^1.0.0",
     "body-parser": "^1.15.2",
+    "classnames": "^2.2.5",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "feathers": "^2.0.2",
@@ -41,12 +45,16 @@
     "feathers-nedb": "^2.5.0",
     "feathers-rest": "^1.5.0",
     "feathers-socketio": "^1.4.1",
+    "lockr": "^0.8.4",
+    "moment": "^2.14.1",
     "nedb": "^1.8.0",
     "passport": "^0.3.2",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.8.1",
     "serve-favicon": "^2.3.0",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.3.4",
     "winston": "^2.2.0"
   },
   "devDependencies": {

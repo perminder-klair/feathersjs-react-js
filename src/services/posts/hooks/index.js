@@ -1,50 +1,55 @@
 'use strict';
 
-const gravatar = require('./gravatar');
+const restrictToSender = require('./restrict-to-sender');
 
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
+const process = require('./process');
+
+const populateCreator = hooks.populate('createdBy', {
+  service: 'users',
+  field: 'userId'
+});
+
 exports.before = {
   all: [],
-  find: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated()
-  ],
-  get: [
+  find: [],
+  get: [],
+  create: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    process()
   ],
-  create: [auth.hashPassword(), gravatar()],
   update: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    hooks.remove('createdBy'),
+    restrictToSender()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    hooks.remove('createdBy'),
+    restrictToSender()
   ],
   remove: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    restrictToSender()
   ]
 };
 
 exports.after = {
-  all: [hooks.remove('password')],
-  find: [],
-  get: [],
-  create: [],
+  all: [],
+  find: [populateCreator],
+  get: [populateCreator],
+  create: [populateCreator],
   update: [],
   patch: [],
   remove: []
