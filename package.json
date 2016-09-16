@@ -18,6 +18,7 @@
   "scripts": {
     "start": "node src/",
     "start-dev": "concurrently 'node src/' 'nwb serve-react-app app/index.js'",
+    "start-react": "nwb serve-react-app app/index.js",
     "mocha": "mocha test/ --recursive",
     "test": "npm run jshint && npm run mocha",
     "jshint": "jshint src/. test/. --config",
@@ -28,8 +29,6 @@
     "test-react:watch": "nwb test --server"
   },
   "dependencies": {
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
@@ -43,6 +42,9 @@
     "feathers-socketio": "^1.4.1",
     "nedb": "^1.8.0",
     "passport": "^0.3.2",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-router": "^2.8.1",
     "serve-favicon": "^2.3.0",
     "winston": "^2.2.0"
   },
