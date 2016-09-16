@@ -18,7 +18,7 @@
   "scripts": {
     "start": "node src/",
     "start-dev": "concurrently 'node src/' 'nwb serve-react-app app/index.js'",
-    "start-react": "nwb serve-react-app app/index.js",
+    "start-react": "nwb serve-react-app app",
     "mocha": "mocha test/ --recursive",
     "test": "npm run jshint && npm run mocha",
     "jshint": "jshint src/. test/. --config",
@@ -29,6 +29,7 @@
     "test-react:watch": "nwb test --server"
   },
   "dependencies": {
+    "alertify.js": "^1.0.12",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cors": "^2.8.1",

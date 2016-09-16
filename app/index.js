@@ -11,6 +11,8 @@ import Contact from './pages/Contact';
 import Users from './pages/Users';
 import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
+import Blog from './pages/Blog';
+import PostView from './pages/PostView';
 
 render(
   <Router history={browserHistory}>
@@ -21,6 +23,9 @@ render(
       <Route path="users" component={Users}>
           <Route path="/profile/:userId" component={Profile}/>
       </Route>
+      <Route path="blog" component={Blog}>
+                <Route path=":id" component={PostView} />
+            </Route>
     <Route path="*" component={NotFound}/>
   </Route>
 </Router>, document.querySelector('#app'));

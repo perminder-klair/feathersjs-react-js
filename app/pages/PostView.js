@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-const Profile = () => {
+const PostView = () => {
     return (
         <div className="ui main container">
-            <h1 className="ui header text center">This is Profile page</h1>
+            <h1 className="ui header text center">Blog Post</h1>
         </div>
     )
 };
 
-export default Profile;
+export default PostView;

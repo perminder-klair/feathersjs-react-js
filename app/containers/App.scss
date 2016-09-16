@@ -1,4 +1,8 @@
-.app {
-  height: 100%;
-  min-height: 400px;
+.text {
+  &.center {}
+  text-align: center;
+}
+
+.main.container {
+  margin-top: 55px;
 }
