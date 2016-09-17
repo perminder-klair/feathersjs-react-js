@@ -13,10 +13,10 @@ module.exports = function(options) {
 
     // First get the post that the user wants to access
     return postService.get(hook.id, hook.params).then(post => {
-      //todo Throw a not authenticated error if the message and user id don't match
-    //   if (post.createdBy._id !== hook.params.user._id) {
-    //     throw new errors.NotAuthenticated('Access not allowed');
-    //   }
+      //Throw a not authenticated error if the post and user id don't match
+      if (post.userId !== hook.params.user._id) {
+        throw new errors.NotAuthenticated('Access not allowed');
+      }
 
       // Otherwise just return the hook
       return hook;

@@ -24,9 +24,10 @@ class AppActions {
 
     checkUser() {
         return (dispatch) => {
-            Feathers.authenticate().then(() => {
+            Feathers.authenticate().then((result) => {
                 console.log('user logged in');
-                dispatch(true);
+                //console.log(result.data);
+                dispatch(result.data);
             }).catch(error => {
                 console.log('user not logged in', error);
                 dispatch(false);

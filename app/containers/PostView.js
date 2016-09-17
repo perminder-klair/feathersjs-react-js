@@ -3,6 +3,7 @@ import AltContainer from 'alt-container';
 
 import PostViewPage from '../pages/PostView';
 import BlogStore from '../stores/BlogStore';
+import AppStore from '../stores/AppStore';
 import BlogActions from '../actions/BlogActions';
 
 const PostView = ({ params: { id } }) => {
@@ -10,6 +11,7 @@ const PostView = ({ params: { id } }) => {
         <AltContainer
             stores={
                 {
+                    App: AppStore,
                     post: function () {
                         return {
                           store: BlogStore,

@@ -29,7 +29,7 @@ class PostsList extends Component {
                     : <div className="ui items">
                         {posts.map(post => <PostItem key={post._id} post={post}/>)}
                     </div>
-}
+                }
             </div>
         )
     }

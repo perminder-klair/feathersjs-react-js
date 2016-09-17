@@ -17,7 +17,8 @@ class AppStore {
             loading: true,//on app load make it loading ON
             loadingCount: 0,
             networkOnline: true,
-            isLoggedIn: false
+            isLoggedIn: false,
+            currentUser: {}
         };
     }
 
@@ -46,8 +47,17 @@ class AppStore {
         this.setState({errorMessage});
     }
 
-    handleCheckUser(isLoggedIn) {
-        this.setState({isLoggedIn});
+    handleCheckUser(user) {
+        if (user) {
+            this.setState({
+                currentUser: user,
+                isLoggedIn: true
+            });
+        } else {
+            this.setState({
+                isLoggedIn: false
+            });
+        }
     }
 
     handleAuth() {

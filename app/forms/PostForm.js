@@ -10,7 +10,7 @@ class PostForm extends Component {
 
         this.state = {
             title: props.post.title || '',
-            description: props.post.description || ''
+            content: props.post.content || ''
         };
     }
 
@@ -28,9 +28,9 @@ class PostForm extends Component {
                     value={this.state.title}
                     onChange={(e) => this.setState({title: e.target.value})} />
                 <TextAreaGroup
-                    label="Description"
-                    value={this.state.description}
-                    onChange={(e) => this.setState({description: e.target.value})} />
+                    label="Content"
+                    value={this.state.content}
+                    onChange={(e) => this.setState({content: e.target.value})} />
                 <button className="ui primary button" onClick={this.handleSubmit.bind(this)}>
                     Submit
                 </button>

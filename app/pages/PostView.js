@@ -11,11 +11,19 @@ class PostView extends Component {
 
     render() {
         let { post } = this.props;
+        let { isLoggedIn, currentUser } = this.props.App;
+        //console.log(post);
+
+        let updatePost;
+        if (isLoggedIn, currentUser._id === post.userId) {
+            updatePost = <Link className="ui small button" to={`/blog/update/${post._id}`}>update post</Link>;
+        }
 
         return (
             <div className="ui main container">
                 <h1 className="ui header text center">{post.title}</h1>
-                <Link className="ui small button" to={`/blog/update/${post._id}`}>update post</Link>
+                {updatePost}
+                <p>{post.content}</p>
             </div>
         )
     }
@@ -26,7 +34,11 @@ PostView.defaultProps = {
 };
 
 PostView.propTypes = {
-    post: PropTypes.object
+    post: PropTypes.object,
+    App: PropTypes.shape({
+        isLoggedIn: PropTypes.bool.isRequired,
+        currentUser: PropTypes.object.isRequired
+    })
 };
 
 export default PostView;

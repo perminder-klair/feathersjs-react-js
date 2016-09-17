@@ -1,6 +1,6 @@
 'use strict';
 
-const restrictToSender = require('./restrict-to-sender');
+const restrictToCreater = require('./restrict-to-creater');
 
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
@@ -27,21 +27,23 @@ exports.before = {
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    hooks.remove('createdBy'),
-    restrictToSender()
+    //hooks.remove('createdBy'),
+    restrictToCreater(),
+    process()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    hooks.remove('createdBy'),
-    restrictToSender()
+    //hooks.remove('createdBy'),
+    restrictToCreater(),
+    process()
   ],
   remove: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    restrictToSender()
+    restrictToCreater()
   ]
 };
 
