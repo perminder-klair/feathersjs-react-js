@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import alertify from 'alertify.js';
+import { browserHistory } from 'react-router';
 
 import AppActions from '../actions/AppActions';
 
@@ -18,6 +19,7 @@ class Signup extends Component {
     handleSubmit = () => {
         AppActions.signup(this.state);
         alertify.success('Signup successfully!');
+        browserHistory.push('/');
     }
 
     render() {

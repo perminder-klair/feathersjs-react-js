@@ -39,6 +39,11 @@ class UsersActions {
     usersFailed(errorMessage) {
         return errorMessage;
     }
+
+    subscribeUser() {
+        const usersService = Feathers.service('users');
+        usersService.subscribe();
+    }
 }
 
 module.exports = alt.createActions(UsersActions);

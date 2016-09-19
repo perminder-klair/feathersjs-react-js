@@ -58,11 +58,12 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "concurrently": "^2.2.0",
     "jshint": "^2.9.3",
     "mocha": "^3.0.2",
-    "request": "^2.74.0",
-    "concurrently": "^2.2.0",
     "nwb": "0.12.x",
-    "nwb-sass": "^0.6.0"
+    "nwb-sass": "^0.6.0",
+    "request": "^2.74.0",
+    "sass-loader": "^4.0.2"
   }
 }

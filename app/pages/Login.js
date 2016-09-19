@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import alertify from 'alertify.js';
+import { browserHistory } from 'react-router';
 
 import AppActions from '../actions/AppActions';
 
@@ -18,6 +19,7 @@ class Login extends Component {
     handleSubmit = () => {
         AppActions.login(this.state);
         alertify.success('Login successfully!');
+        browserHistory.push('/');
     }
 
     render() {

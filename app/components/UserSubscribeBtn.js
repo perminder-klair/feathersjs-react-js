@@ -2,9 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import _ from 'underscore';
 import alertify from 'alertify.js';
 
+import UsersActions from '../actions/UsersActions';
+
 class UserSubscribeBtn extends Component {
     subscribe() {
         alertify.success("Subscribed successfully!");
+        UsersActions.subscribeUser();
     }
 
     unSubscribe() {
